@@ -92,12 +92,14 @@ const trackMouse = (e) => {
     if (isCurrentLine) {
       segment.style.width = "54px"; // Full width for current line
       segment.style.opacity = "1"; // Visible for current line
+      line.style.transform = "scaleX(1)";
     } else if (isPreviousLine || isNextLine) {
       segment.style.width = "27px"; // Half width for previous and next lines
       segment.style.opacity = "1"; // Visible for previous and next lines
     } else {
       segment.style.width = "0"; // No width for other lines
       segment.style.opacity = "0"; // Hidden for other lines
+      line.style.transform = "scaleX(0)";
     }
 
     // Position the segment relative to the mouse
