@@ -12,6 +12,10 @@ body {
   width: 100%;
   height: 2px;
   background: #9b8888;
+  transform: scaleX(0); /* Initially hidden */
+  transform-origin: 0;
+  transition: transform 0.3s ease-out;
+  width: 100%;
   z-index: -1;
 }
 
