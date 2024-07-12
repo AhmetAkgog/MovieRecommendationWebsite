@@ -2,7 +2,7 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background: rgb(109, 103, 103);
+  background: rgb(174, 163, 163);
   position: relative;
 
 }
@@ -22,7 +22,7 @@ body {
 .segment {
   position: absolute;
   height: 100%;
-  background: rgb(109, 103, 103);
+  background: rgb(174, 163, 163);
   transition: opacity 0.1s ease, width 0.1s ease; /* Added width transition */
   opacity: 0;
   width: 0; /* Initial width */
@@ -162,4 +162,7 @@ header {
   }
 
 
-  
+  a, a:visited {
+  text-decoration: none;
+    color: white;
+}

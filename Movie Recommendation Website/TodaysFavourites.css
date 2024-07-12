@@ -1,137 +1,151 @@
 body {
-    margin: 0;
-    height: 200vh;
-    background: rgb(109, 103, 103);
-    position: relative;
+  margin: 0;
+  height: 200vh;
+  background: rgb(109, 103, 103);
+  position: relative;
+
+}
+/*Animation for the background*/
+.line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #9b8888;
+  transform: scaleX(0); /* Initially hidden */
+  transform-origin: 0;
+  transition: transform 0.3s ease-out;
+  width: 100%;
+  z-index: -1;
+}
+
+.segment {
+  position: absolute;
+  height: 100%;
+  background: rgb(109, 103, 103);
+  transition: opacity 0.1s ease, width 0.1s ease; /* Added width transition */
+  opacity: 0;
+  width: 0; /* Initial width */
+  z-index: -1;
+/*Animation for the background*/
+}
+header {
+    font-family: 'Arial';
+    background-color: #333;
+    color: white;
   
-  }
-  /*Animation for the background*/
-  .line {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #9b8888;
-    transform: scaleX(0); /* Initially hidden */
-    transform-origin: 0;
-    transition: transform 0.3s ease-out;
-    width: 100%;
-    z-index: -1;
-  }
-  
-  .segment {
-    position: absolute;
-    height: 100%;
-    background: rgb(109, 103, 103);
-    transition: opacity 0.1s ease, width 0.1s ease; /* Added width transition */
-    opacity: 0;
-    width: 0; /* Initial width */
-    z-index: -1;
-  /*Animation for the background*/
-  }
-  header {
-      font-family: 'Arial';
-      background-color: #333;
-      color: white;
-  
-    }
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex; /* Changed to flex-start */
+
+}
+
+.header-content h1 {
+  margin-right: 500px; /* Adjust this value to bring the button closer */
+  padding-left: 400px;
+
+}
+
+button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+}
+
+button:hover {
+  background-color: #777;
+}
+
+.headerMainList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+  padding-right: 20px;
+}
+
+.headerMainList li {
+  position: relative; /* Needed for the dropdown */
+  margin-right: 20px;
+  background-color: black;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Arial';
+}
+
+
+.dropdown {
+  font-family: 'Arial';
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 150%;
+  background-color: black;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  color:white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dropdown li {
+  margin: 0px;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown li:last-child {
+  border-bottom: none;
+}
+
+.dropdown li a {
+  color: white;
+}
+
+.headerMainList li:hover .dropdown {
+  display: block;
+}
+
+main {
+    padding: 1rem;
+    min-height: 300vh; /* Ensures page is long enough to scroll */
+}
     
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: flex; /* Changed to flex-start */
-  
-    }
-    
-    .header-content h1 {
-      margin-right: 500px; /* Adjust this value to bring the button closer */
-      padding-left: 400px;
-  
-    }
-  
-    button {
-      background-color: #555;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-  
-    }
-    
-    button:hover {
-      background-color: #777;
-    }
-    
-    .headerMainList {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0;
-      list-style: none;
-      padding-right: 20px;
-    }
-    
-    .headerMainList li {
-      position: relative; /* Needed for the dropdown */
-      margin-right: 20px;
-      background-color: black;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: 'Arial';
-    }
-    
-    
-    .dropdown {
-      font-family: 'Arial';
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 150%;
-      background-color: black;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      color:white;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    
-    .dropdown li {
-      margin: 0px;
-      padding: 20px;
-      border-bottom: 1px solid #ccc;
-    }
-    
-    .dropdown li:last-child {
-      border-bottom: none;
-    }
-    
-    .dropdown li a {
-      color: white;
-    }
-    
-    .headerMainList li:hover .dropdown {
-      display: block;
-    }
-    
-    
-    main {
-        padding: 1rem;
-        min-height: 200vh; /* Ensures page is long enough to scroll */
-    }
-    
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
+.Shortcut {
+  display:flex;
+  justify-content: center;
+}
+.Shortcut li {
+  list-style-type: none;
+  margin-right: 20px;
+  background-color: gray;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Arial';
+  overflow: hidden;
+}
+.Shortcut li:hover {
+  background-color: brown;
+}
+
+.Shortcut li a {
+  display: block;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+
 
 .headlines {
     text-align: center;
@@ -173,9 +187,44 @@ body {
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
-
 a, a:visited {
   text-decoration: none;
     color: white;
+}
+
+.popup {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.popup-content {
+  background-color: black;
+  margin: 15% auto; 
+  border: 1px solid #888;
+  width: 650px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }

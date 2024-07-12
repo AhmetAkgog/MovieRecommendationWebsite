@@ -9,16 +9,13 @@
   </head>
   <body>
     <div id="line-container"></div>
+    <!-- This is the line container for the line animation -->
     <header>
       <div class="header-content">
         <h1><span id="title">Cinephile</span></h1>
         <ul class="headerMainList">
           <li>
-            Home Page
-            <ul class="dropdown">
-              <li><a href="homepage.html">Home Page</a></li>
-              <li><a href="aboutme.html">About Me</a></li>
-            </ul>
+            <a href="homepage.html">Home Page</a>
           </li>
           <li>
             Taste Compatibility
@@ -36,12 +33,7 @@
           </li>
 
           <li>
-            Todays Favourites
-            <ul class="dropdown">
-              <li><a href="allfavourites">All</a></li>
-              <li><a href="#thriller">Thriller</a></li>
-              <li><a href="#drama">Drama</a></li>
-            </ul>
+            <a href="TodaysFavourites.html">Today's Favourites</a>
           </li>
         </ul>
         <button id="SignIn">Sign In</button>
@@ -52,13 +44,32 @@
         <h2>Welcome to my project!</h2>
         <p>
           <strong>
-            This is a project website developed by Ahmet Akgöğ, my mission is
-            for this site to improve my self on my web development journey, and
+            This is a project website developed by Ahmet Akgöğ, my mission
+            for this site is to improve my self on my web development journey, and
             I thought the best way to do this is solve one of my problems,
             knowing what to watch with the people I love. I hope you enjoy what
             I did and have a great time on my website.
           </strong>
         </p>
+      </section>
+      <section>
+        <h2>About Me</h2>
+        <p>
+          Hi! I am Ahmet Akgöğ, 22 year old software engineering student at
+          Istinye University. Me and my buddies love watching movies. We always
+          have a hard time deciding what to watch. So, I decided to create this
+          website to help people like me and improve myself. I hope you enjoy my
+          website and find it useful. Have a great time!
+        </p>
+        <h3>Share your complaints,suggestions with me!</h3>
+        <form id="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send</button>
       </section>
     </main>
     <footer>
