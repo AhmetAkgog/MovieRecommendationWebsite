@@ -102,7 +102,7 @@ document.addEventListener("mousemove", trackMouse);
 window.addEventListener("scroll", trackMouse); // Added scroll event listener
 
 
-//SHOW VIDEO ON CLICK
+//SHOW VIDEO ON CLICK (applies only to TodaysFavourites.html)
 var tag = document.createElement("script"); // Load the IFrame Player API code asynchronously.
 tag.src = "https://www.youtube.com/iframe_api"; //Implementing the API
 var firstScriptTag = document.getElementsByTagName("script")[0]; // Find the first script element on the page
@@ -124,9 +124,122 @@ document.querySelectorAll('.thumbnail').forEach(img => {  // Getting the video I
       player.loadVideoById(videoId);
   });
 });
-
 document.querySelector('.close').addEventListener('click', function() { // Close the popup when clicking the close button
   const popup = document.getElementById('popup');
   popup.style.display = 'none'; // Hide the popup
   player.stopVideo();
 });
+
+
+
+//TMDB API to show popular movie infos according to genre (applies only to TodaysFavourites.html)
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmYxMzBiOWYzZTIxMTI2MGFmMmIwZmQyMzhjZWIyMCIsIm5iZiI6MTcyMTIyMjM1OC4xODMzMzcsInN1YiI6IjY2OTQ0NGU0ZGFjNjc5M2YyNzg5NmIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ff-ja6-IFX7sHB3O4yyZtCsMe9Yk-tYhT0FOSJS4_vU'
+  }
+};
+
+const totalPages = 10; // Number of pages to fetch
+let allMoviesData = []; // Array to store all fetched movies data
+
+const sections = {
+  "#All": [],
+  "#Drama": [18],
+}; // Define sections with their IDs
+
+function fetchMoviesData(page) {
+  const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`;
+
+  return fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch page ${page}: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(`Fetched page ${page} data:`, data);
+      return data.results; // Return results array for current page
+    })
+    .catch(error => {
+      console.error(`Error fetching page ${page} data:`, error);
+      return []; // Return empty array in case of error
+    });
+}
+
+function fetchVideoData(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`;
+
+  return fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch videos for movie ${movieId}: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(video => {
+      console.log(`Fetched video data for movie ${movieId}:`, video);
+      return video.results; // Return results array for videos
+    })
+    .catch(error => {
+      console.error(`Error fetching video data for movie ${movieId}:`, error);
+      return []; // Return empty array in case of error
+    });
+}
+
+async function fetchAllPagesData() {
+  try {
+    for (let page = 1; page <= totalPages; page++) {
+      const movies = await fetchMoviesData(page);
+      allMoviesData = allMoviesData.concat(movies);
+    }
+
+    console.log('All movies data:', allMoviesData);
+
+    // Process each movie and fetch video data for each section
+    Object.keys(sections).forEach(sectionId => { //get the keys of sections object
+      const movieElements = document.querySelectorAll(`${sectionId} .movie`);
+      const sectionGenreIds = sections[sectionId]; //gets the value of the sections in iteration of the object
+
+      let filteredMovies;
+      if (sectionGenreIds.length > 0) {
+        filteredMovies = allMoviesData.filter(movie =>
+          movie.genre_ids.some(genreId => sectionGenreIds.includes(genreId)) //some() method: This method checks if at least one element in the array passes the test implemented by the provided function. If any genreId in movie.genre_ids is found in sectionGenreIds, the movie is included in the filteredMovies array.
+        );
+      } else {
+        filteredMovies = allMoviesData;
+      }
+
+      filteredMovies.forEach((movie, index) => {
+        if (index < movieElements.length) {
+          const movieElement = movieElements[index];
+          const imgElement = movieElement.querySelector('img');
+          const titleElement = movieElement.querySelector('h3');
+          const overviewElement = movieElement.querySelector('span');
+
+          imgElement.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+          titleElement.textContent = movie.title;
+          overviewElement.textContent = movie.overview;
+
+          // Fetch video data for the current movie
+          fetchVideoData(movie.id)
+            .then(videoData => {
+              // Find and set trailer video key if available
+              const trailerVideo = videoData.find(video => video.type === 'Trailer');
+              if (trailerVideo) {
+                imgElement.setAttribute('data-video-id', trailerVideo.key);
+              }
+            })
+            .catch(err => console.error('Error fetching video data:', err));
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Error fetching all pages data:', error);
+  }
+}
+
+// Call function to fetch all pages data
+fetchAllPagesData();
