@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="solorecommendation.css" />
+    <title>Solo Recommendation</title>
+  </head>
+  <body>
+    <div id="line-container"></div>
+    <header>
+      <div class="header-content">
+        <h1><span id="title">Cinephile</span></h1>
+        <ul class="headerMainList">
+          <li>
+            <a href="homepage.html">Home Page</a>
+          </li>
+          <li>
+            Taste Compatibility
+            <ul class="dropdown">
+              <li><a href="compatibility.html">Compatibility</a></li>
+              <li><a href="#soloinfo">Learn About Your Taste</a></li>
+            </ul>
+          </li>
+          <li>
+            Movie Recommendation
+            <ul class="dropdown">
+              <li><a href="#group">Group Recommendation</a></li>
+              <li><a href="solorecommendation.html">Solo Recommendation</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="TodaysFavourites.html">Today's Favourites</a>
+          </li>
+        </ul>
+        <button id="SignIn">Sign In</button>
+      </div>
+    </header>
+    <main>
+      <h2 class="headlines">Please enter a movie</h2>
+      <div class="autocomplete">
+        <input id="searchInput" type="text" placeholder="Type to search..." />
+        <button id="submitButton">Submit</button>
+        <div id="suggestions"></div>
+      </div>
+      <h2 class="headlines">Please choose the movie you mentioned</h2>
+      <div class="movie-container" id="movie-container">
+        <div class="movie">
+          <img
+            class="thumbnail"
+            src="images/manchestterbythesea.jpg"
+            alt="Movie Poster"
+            data-video-id="gsVoD0pTge0"
+            width="300"
+          />
+          <h3>Manchester by the Sea</h3>
+          <span>
+            After his older brother passes away, Lee Chandler is forced to
+            return home to care for his 16-year-old nephew. There he is
+            compelled to deal with a tragic past that separated him from his
+            family and the community where he was born and raised.
+          </span>
+          <div id="popup" class="popup" style="display: none">
+            <div class="popup-content">
+              <span class="close">&times;</span>
+              <div id="player"></div>
+              <!--1. The <iframe> (and video player) will replace this <div> tag. -->
+            </div>
+          </div>
+        </div>
+        <div class="movie">
+          <img
+            class="thumbnail"
+            src="images/reservoirdogs.jpg"
+            data-video-id="GLPJSmUHZvU"
+            alt="Movie Poster"
+            width="300"
+          />
+          <h3>Reservoir Dogs</h3>
+          <span>
+            A botched robbery indicates a police informant, and the pressure
+            mounts in the aftermath at a warehouse. Crime begets violence as the
+            survivors – veteran Mr. White, newcomer Mr. Orange, psychopathic
+            parolee Mr. Blonde, bickering weasel Mr. Pink and Nice Guy Eddie –
+            unravel.
+          </span>
+        </div>
+        <div class="movie">
+          <img
+            src="images/shaunofthedead.jpg"
+            alt="Movie Poster"
+            data-video-id="f9XZqB6pI5E"
+            class="thumbnail"
+          />
+          <h3>Shaun of the Dead</h3>
+          <span>
+            Shaun lives a supremely uneventful life, which revolves around his
+            girlfriend, his mother, and, above all, his local pub. This gentle
+            routine is threatened when the dead return to life and make
+            strenuous attempts to snack on ordinary Londoners.
+          </span>
+        </div>
+        <div class="movie">
+          <img
+            src="images/Superbad.jpg"
+            alt="Movie Poster"
+            class="thumbnail"
+            data-video-id="vqQmTyOHTsw"
+          />
+          <h3>Superbad</h3>
+          <span>
+            Two co-dependent high school seniors are forced to deal with
+            separation anxiety after their plan to stage a booze-soaked party
+            goes awry.
+          </span>
+        </div>
+        <div class="movie">
+          <img
+            src="images/soundofmetal.jpg"
+            alt="Movie Poster"
+            class="thumbnail"
+            data-video-id="VFOrGkAvjAE"
+          />
+          <h3>Sound of Metal</h3>
+          <span>
+            A drummer begins to lose his hearing and has to come to grips with a
+            future that will be filled with silence.
+          </span>
+        </div>
+      </div>
+      <script src="solorecommendation.js" defer></script>
+    </main>
+  </body>
+</html>
