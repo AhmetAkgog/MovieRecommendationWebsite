@@ -137,7 +137,7 @@ const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmYxMzBiOWYzZTIxMTI2MGFmMmIwZmQyMzhjZWIyMCIsIm5iZiI6MTcyMTIyMjM1OC4xODMzMzcsInN1YiI6IjY2OTQ0NGU0ZGFjNjc5M2YyNzg5NmIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ff-ja6-IFX7sHB3O4yyZtCsMe9Yk-tYhT0FOSJS4_vU'
+    Authorization: 'Bearer YOUR API KEY HERE'
   }
 };
 
