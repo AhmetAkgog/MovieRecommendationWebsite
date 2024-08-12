@@ -137,7 +137,7 @@ const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer YOUR API KEY HERE'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmYxMzBiOWYzZTIxMTI2MGFmMmIwZmQyMzhjZWIyMCIsIm5iZiI6MTcyMTIyMjM1OC4xODMzMzcsInN1YiI6IjY2OTQ0NGU0ZGFjNjc5M2YyNzg5NmIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ff-ja6-IFX7sHB3O4yyZtCsMe9Yk-tYhT0FOSJS4_vU'
   }
 };
 
@@ -147,6 +147,22 @@ let allMoviesData = []; // Array to store all fetched movies data
 const sections = {
   "#All": [],
   "#Drama": [18],
+  "#Action": [28],
+  "#Adventure": [12],
+  "#Animation": [16],
+  "#Comedy": [35],
+  "#Crime":[80],
+  "#Family":[10751],
+  "#Fantasy": [14],
+  "#History" : [36],
+  "#Horror": [27],
+  "#Music": [10402],
+  "#Mystery" : [9648],
+  "#Romance" : [10749],
+  "#Sci-Fi" : [878],
+  "#Thriller" : [53],
+  "#War" : [10752],
+  "#Western" : [37]
 }; // Define sections with their IDs
 
 function fetchMoviesData(page) {
