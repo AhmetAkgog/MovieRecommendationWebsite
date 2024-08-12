@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="compatibility.css" />
+    <script src="homepage.js" defer></script>
+    <title>Home Page</title>
+  </head>
+  <body>
+    <div id="line-container"></div>
+    <!-- This is the line container for the line animation -->
+    <header>
+      <div class="header-content">
+        <h1><span id="title">Cinephile</span></h1>
+        <ul class="headerMainList">
+          <li>
+            <a href="homepage.html">Home Page</a>
+          </li>
+          <li>
+            Taste Compatibility
+            <ul class="dropdown">
+              <li><a href="compatibility.html">Compatibility</a></li>
+              <li><a href="#soloinfo">Learn About Your Taste</a></li>
+            </ul>
+          </li>
+          <li>
+            Movie Recommendation
+            <ul class="dropdown">
+              <li><a href="#group">Group Recommendation</a></li>
+              <li><a href="solorecommendation.html">Solo Recommendation</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="TodaysFavourites.html">Today's Favourites</a>
+          </li>
+        </ul>
+        <button id="SignIn">Sign In</button>
+      </div>
+    </header>
+    <main>
+      <section id="welcome">
+        <h2>Taste Compatibility</h2>
+        <span>Test your taste compatibility with others!</span>
+      </section>
+      <section id="upload">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <label for="fileInput1">First Person (CSV):</label>
+          <input type="file" id="fileInput1" name="fileInput1" />
+          <label for="fileInput2">Second Person (CSV):</label>
+          <input type="file" id="fileInput2" name="fileInput2" />
+          <button type="submit">Upload</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 My Webpage</p>
+    </footer>
+  </body>
+</html>
